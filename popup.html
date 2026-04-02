@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 360px; font-family: 'Segoe UI', sans-serif; padding: 0; margin: 0; background: #f8fafc; }
+    .tabs { display: flex; background: #fff; border-bottom: 1px solid #e2e8f0; }
+    .tab { flex: 1; padding: 12px; text-align: center; cursor: pointer; color: #64748b; font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; }
+    .tab.active { color: #6366f1; border-bottom-color: #6366f1; background: #fdfdff; }
+    .content { padding: 15px; }
+    #list { max-height: 400px; overflow-y: auto; }
+    .record { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .topic-tag { background: #eef2ff; color: #6366f1; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; overflow: hidden; text-overflow: ellipsis; max-width: 160px; white-space: nowrap; }
+    .time-tag { color: #94a3b8; font-size: 11px; }
+    .text { font-size: 13px; color: #1e293b; line-height: 1.5; word-break: break-all; }
+    .footer { display: flex; gap: 10px; margin-top: 10px; }
+    button { flex: 1; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 13px; }
+    .btn-export { background: #6366f1; color: #fff; }
+    .btn-clear { background: #ef4444; color: #fff; }
+    .empty { text-align: center; color: #94a3b8; padding: 40px 0; }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active" data-target="qwen">通义千问</div>
+    <div class="tab" data-target="ds">DeepSeek</div>
+  </div>
+  <div class="content">
+    <div id="list"></div>
+    <div class="footer">
+      <button class="btn-export" id="exportBtn">导出 CSV</button>
+      <button class="btn-clear" id="clearBtn">清空当前</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

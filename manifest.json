@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "AI 对话时间轴 (全能版)",
+  "version": "5.0",
+  "description": "集成记录 通义千问 与 DeepSeek 的对话时间与话题",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://tongyi.aliyun.com/*",
+    "*://www.qianwen.com/*",
+    "*://qianwen.aliyun.com/*",
+    "*://chat.deepseek.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "查看 AI 对话记录"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://tongyi.aliyun.com/*",
+        "*://www.qianwen.com/*",
+        "*://qianwen.aliyun.com/*"
+      ],
+      "js": ["qwen_content.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://chat.deepseek.com/*"],
+      "js": ["ds_inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["*://chat.deepseek.com/*"],
+      "js": ["ds_content.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}
